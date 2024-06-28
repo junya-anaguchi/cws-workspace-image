@@ -12,10 +12,10 @@ ENV NVM_DIR /usr/local/share/.nvm
 ENV PYENV_ROOT /usr/local/share/.pyenv
 
 COPY installer* /var/tmp/
-COPY startup* /etc/workstation-startup.d/
+COPY startup-add-env.sh /etc/profile.d/
 
 # Install utilities
-RUN sudo apt-get update && sudo apt-get install -y git-flow 
+RUN /var/tmp/installer-utilities.sh
 
 # Install nodejs
 # (See this https://github.com/nvm-sh/nvm?tab=readme-ov-file#usage)
@@ -27,6 +27,3 @@ RUN /var/tmp/installer-terraform.sh ${TERRAFORM_VERSION}
 
 # Install python
 RUN /var/tmp/installer-python.sh ${PYTHON_VERSION} ${PYENV_ROOT}
-
-# Envs
-ENV GOOGLE_APPLICATION_CREDENTIALS /home/user/.gcp/default.json
