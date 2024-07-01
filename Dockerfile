@@ -1,6 +1,8 @@
+ARG IDE
+
 # You can find the list of base images provided by Google Cloud
 # https://cloud.google.com/workstations/docs/preconfigured-base-images?hl=ja
-FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/webstorm:latest	
+FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/${IDE}:latest
 
 SHELL [ "/bin/bash", "-c" ]
 
