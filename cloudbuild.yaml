@@ -1,0 +1,34 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'build-codeoss'
+  entrypoint: 'bash'
+  args: ['-c', 'docker build -t $_USERNAME/cws-workspace:code-oss-$_DT . --build-arg "IDE=code-oss"']
+  waitFor: ['-']
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'build-pycharm'
+  entrypoint: 'bash'
+  args: ['-c', 'docker build -t $_USERNAME/cws-workspace:pycharm-$_DT . --build-arg "IDE=pycharm"']
+  waitFor: ['-']
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'build-webstorm'
+  entrypoint: 'bash'
+  args: ['-c', 'docker build -t $_USERNAME/cws-workspace:webstorm-$_DT . --build-arg "IDE=webstorm"']
+  waitFor: ['-']
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'docker-login'
+  entrypoint: 'bash'
+  args: ['-c', 'docker login --username=$_USERNAME --password=$_PASSWORD']
+  waitFor: ['build-codeoss', 'build-pycharm', 'build-webstorm']
+- name: "gcr.io/cloud-builders/docker"
+  entrypoint: 'bash'
+  args: ['-c', 'docker push $_USERNAME/cws-workspace:code-oss-$_DT']
+  waitFor: ['docker-login']
+- name: "gcr.io/cloud-builders/docker"
+  entrypoint: 'bash'
+  args: ['-c', 'docker push $_USERNAME/cws-workspace:pycharm-$_DT']
+  waitFor: ['docker-login']
+- name: "gcr.io/cloud-builders/docker"
+  entrypoint: 'bash'
+  args: ['-c', 'docker push $_USERNAME/cws-workspace:webstorm-$_DT']
+  waitFor: ['docker-login']

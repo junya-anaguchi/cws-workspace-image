@@ -8,6 +8,5 @@ apt-get update && apt-get install -y libssl-dev libbz2-dev libffi-dev libreadlin
 curl https://pyenv.run | bash \
     && $PYENV_ROOT/bin/pyenv install ${PYTHON_VERSION} \
     && $PYENV_ROOT/bin/pyenv global ${PYTHON_VERSION} \
-    && $PYENV_ROOT/shims/python3 -m pip install pipenv \
-    && chown -R user:user $PYENV_ROOT
+    && $PYENV_ROOT/shims/python3 -m pip install pipenv
 

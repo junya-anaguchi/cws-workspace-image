@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export TERRAFORM_VERSION=${1:-"1.8.4-1"}
+export TERRAFORM_VERSION=${1:-"1.9.0-1"}
 
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common && \
     wget -O- https://apt.releases.hashicorp.com/gpg | \
