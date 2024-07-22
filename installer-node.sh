@@ -10,3 +10,4 @@ mkdir -p $NVM_DIR \
     && nvm alias default $NODE_VERSION \
     && nvm use default \
     && npm install yarn -g
+    && chown -R user:user $NVM_DIR
