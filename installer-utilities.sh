@@ -40,5 +40,6 @@ then
     --install-extension humao.rest-client \
     --install-extension dbaeumer.vscode-eslint \
     --install-extension shardulm94.trailing-spaces \
-    --install-extension ms-toolsai.jupyter
+    --install-extension ms-toolsai.jupyter \
+    --install-extension hashicorp.terraform
 fi
