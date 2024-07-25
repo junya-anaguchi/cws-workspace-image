@@ -34,4 +34,4 @@ steps:
   waitFor: ['docker-login']
 
 options:
-  machineType: 'N1_HIGHCPU_8'
+  machineType: "N1_HIGHCPU_8"
