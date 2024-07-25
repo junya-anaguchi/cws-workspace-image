@@ -33,5 +33,8 @@ steps:
   args: ['-c', 'docker push $_USERNAME/cws-workspace:webstorm-$_DT']
   waitFor: ['docker-login']
 
+substitutions:
+  _USERNAME: "kabashan"
+
 options:
   machineType: "N1_HIGHCPU_8"
