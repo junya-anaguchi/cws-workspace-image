@@ -6,9 +6,9 @@ FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/${IDE}:late
 
 SHELL [ "/bin/bash", "-c" ]
 
-ENV NODE_VERSION=18.12.1
+ENV NODE_VERSION=18.20.4
 ENV PYTHON_VERSION=3.12.3
-ENV TERRAFORM_VERSION=1.8.4-1
+ENV TERRAFORM_VERSION=1.9.3-1
 
 ENV NVM_DIR=/usr/local/share/.nvm
 ENV PYENV_ROOT=/usr/local/share/.pyenv

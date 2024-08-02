@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export NODE_VERSION=${1:-"18.12.1"}
+export NODE_VERSION=${1:-"18.20.4"}
 export NVM_DIR=${2:-"/usr/local/share/.nvm"}
 
 mkdir -p $NVM_DIR \
