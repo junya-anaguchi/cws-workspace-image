@@ -43,3 +43,15 @@ then
     --install-extension ms-toolsai.jupyter \
     --install-extension hashicorp.terraform
 fi
+
+if [ -f "/installer-scripts/plugin-installer.sh" ];
+then
+  # Declare an array of plugin ids
+  # (Tabnine, Terraform, Rainbow Brackets, dotenv support, .ignore)
+  declare -a plugins=("12798" "7808" "10080" "9525" "7495")
+
+  # Install
+  for plugin_id in "${plugins[@]}"; do
+    /installer-scripts/plugin-installer.sh -d /opt/WebStorm/plugins/ "${plugin_id}"
+  done
+fi
