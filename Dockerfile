@@ -14,7 +14,7 @@ ENV NVM_DIR=/usr/local/share/.nvm
 ENV PYENV_ROOT=/usr/local/share/.pyenv
 
 COPY installer* /var/tmp/
-COPY startup-add-env.sh /etc/profile.d/
+COPY startup* /etc/profile.d/
 
 # Install utilities
 RUN /var/tmp/installer-utilities.sh
