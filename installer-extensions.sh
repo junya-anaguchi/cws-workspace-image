@@ -34,13 +34,16 @@ then
   for plugin_id in "${plugins[@]}"; do
     /opt/code-oss/bin/codeoss-cloudworkstations --install-extension "${plugin_id}"
   done
+  rm /root/.codeoss-cloudworkstations/extensions/extensions.json
+  cp -r /root/.codeoss-cloudworkstations/extensions/* /opt/code-oss/extensions/
+  ls -l /opt/code-oss/extensions/
 fi
 
 if [ -f "/installer-scripts/plugin-installer.sh" ];
 then
   # Declare an array of plugin ids
-  # (Tabnine, Terraform, Rainbow Brackets, dotenv support, .ignore)
-  declare -a plugins=("12798" "7808" "10080" "9525" "7495")
+  # (Tabnine, Rainbow Brackets, dotenv support, .ignore)
+  declare -a plugins=("12798" "10080" "9525" "7495")
 
   # Install
   for plugin_id in "${plugins[@]}"; do

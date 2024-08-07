@@ -29,3 +29,6 @@ RUN /var/tmp/installer-terraform.sh ${TERRAFORM_VERSION}
 
 # Install python
 RUN /var/tmp/installer-python.sh ${PYTHON_VERSION} ${PYENV_ROOT}
+
+# Install extensions
+RUN /var/tmp/installer-extensions.sh
