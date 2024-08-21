@@ -8,5 +8,10 @@ mkdir -p $NVM_DIR \
     && . $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
-    && nvm use default \
     && npm install yarn -g
+
+# Install other versions of node
+nvm install 16.20.2 && npm install yarn -g
+nvm install 20.16.0 && npm install yarn -g
+
+nvm use default
