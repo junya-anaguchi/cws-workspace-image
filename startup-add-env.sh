@@ -16,3 +16,7 @@ eval "$("$PYENV_ROOT"/bin/pyenv init -)"
 
 # Google Application Credentials
 export GOOGLE_APPLICATION_CREDENTIALS=/home/user/.gcp/default.json
+
+# Install slack
+curl -fsSL https://downloads.slack-edge.com/slack-cli/install.sh | bash
+export PATH=/home/user/.slack/bin/:$PATH
